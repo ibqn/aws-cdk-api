@@ -5,6 +5,7 @@ import * as apigw from 'aws-cdk-lib/aws-apigateway'
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
 import { VisitCounter } from './visit-counter'
 import * as path from 'path'
+import { TableViewer } from 'cdk-dynamo-table-viewer'
 
 export class AwsCdkApiStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -25,6 +26,11 @@ export class AwsCdkApiStack extends Stack {
 
     new apigw.LambdaRestApi(this, 'endpoint', {
       handler: messageWithVisitCounter.handler,
+    })
+
+    new TableViewer(this, 'display-visits-counter', {
+      title: 'Display Visits',
+      table: messageWithVisitCounter.table,
     })
   }
 }

@@ -5,6 +5,7 @@ import * as cdk from 'aws-cdk-lib'
 import { AwsCdkApiStack } from '../lib/aws-cdk-api-stack'
 
 const app = new cdk.App()
+
 new AwsCdkApiStack(app, 'aws-cdk-api-stack', {
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,

@@ -11,11 +11,12 @@ export interface VisitCounterProps {
 
 export class VisitCounter extends Construct {
   public readonly handler: lambda.Function
+  public readonly table: dynamodb.Table
 
   constructor(scope: Construct, id: string, props: VisitCounterProps) {
     super(scope, id)
 
-    const table = new dynamodb.Table(this, 'visits', {
+    this.table = new dynamodb.Table(this, 'visits', {
       partitionKey: { name: 'path', type: dynamodb.AttributeType.STRING },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
     })
@@ -25,12 +26,12 @@ export class VisitCounter extends Construct {
       entry: path.resolve(process.cwd(), `lambda-fns/visit-counter.ts`),
       environment: {
         DOWNSTREAM_FUNCTION_NAME: props.downstream.functionName,
-        HITS_TABLE_NAME: table.tableName,
+        HITS_TABLE_NAME: this.table.tableName,
       },
     })
 
     props.downstream.grantInvoke(this.handler)
 
-    table.grantReadWriteData(this.handler)
+    this.table.grantReadWriteData(this.handler)
   }
 }

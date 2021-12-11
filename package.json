@@ -4,7 +4,7 @@
   "bin": {
     "aws-cdk-api": "bin/aws-cdk-api.js"
   },
-  "private":"true",
+  "private": "true",
   "license": "UNLICENSED",
   "scripts": {
     "build": "tsc",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "2.1.0",
+    "cdk-dynamo-table-viewer": "^0.2.26",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.16"
   }

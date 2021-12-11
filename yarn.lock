@@ -1170,6 +1170,11 @@ cdk-assets@2.1.0:
     mime "^2.6.0"
     yargs "^16.2.0"
 
+cdk-dynamo-table-viewer@^0.2.26:
+  version "0.2.26"
+  resolved "https://registry.yarnpkg.com/cdk-dynamo-table-viewer/-/cdk-dynamo-table-viewer-0.2.26.tgz#051a95250f4a571ee772b8358ecfc82b5b1fdf8b"
+  integrity sha512-y8YeUSWV8jTF79KICq0Xg7V6S/COvNkQWzJQFXGsg91LMt5D9QXJAC78MZLM6yXurFvMl8CbTeKNhCzjVxLN2g==
+
 chalk@^2.0.0:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
