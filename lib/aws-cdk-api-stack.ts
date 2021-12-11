@@ -31,6 +31,7 @@ export class AwsCdkApiStack extends Stack {
     new TableViewer(this, 'display-visits-counter', {
       title: 'Display Visits',
       table: messageWithVisitCounter.table,
+      sortBy: '-visits',
     })
   }
 }
