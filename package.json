@@ -4,6 +4,8 @@
   "bin": {
     "aws-cdk-api": "bin/aws-cdk-api.js"
   },
+  "private":"true",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "tsc",
     "clean": "tsc --build --clean",
