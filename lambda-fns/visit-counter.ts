@@ -10,7 +10,7 @@ export const handler = async (event: any): Promise<any> => {
     .updateItem({
       TableName: process.env.HITS_TABLE_NAME!,
       Key: { path: { S: event.path } },
-      UpdateExpression: 'ADD hits :incr',
+      UpdateExpression: 'ADD visits :incr',
       ExpressionAttributeValues: { ':incr': { N: '1' } },
     })
     .promise()

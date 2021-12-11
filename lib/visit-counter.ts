@@ -15,7 +15,7 @@ export class VisitCounter extends Construct {
   constructor(scope: Construct, id: string, props: VisitCounterProps) {
     super(scope, id)
 
-    const table = new dynamodb.Table(this, 'hits', {
+    const table = new dynamodb.Table(this, 'visits', {
       partitionKey: { name: 'path', type: dynamodb.AttributeType.STRING },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
     })
@@ -28,5 +28,9 @@ export class VisitCounter extends Construct {
         HITS_TABLE_NAME: table.tableName,
       },
     })
+
+    props.downstream.grantInvoke(this.handler)
+
+    table.grantReadWriteData(this.handler)
   }
 }
