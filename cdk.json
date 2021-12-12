@@ -1,11 +1,9 @@
 {
   "app": "npx ts-node --prefer-ts-exts bin/aws-cdk-api.ts",
   "watch": {
-    "include": [
-      "**"
-    ],
+    "include": ["**"],
     "exclude": [
-      "README.md",
+      "readme.md",
       "cdk*.json",
       "**/*.d.ts",
       "**/*.js",
