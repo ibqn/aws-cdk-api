@@ -6,14 +6,17 @@ This project with created with
 npx aws-cdk init --language typescript
 ```
 
-To deploy this stack run
+## Getting started
+
+Bootstrap and deploy this project
 
 ```sh
-npx aws-cdk deploy
+cdk bootstrap
+cdk deploy
 ```
 
-To remove deployed stack please run
+Do not forget get it once you do not need this resource any more
 
 ```sh
-npx aws-cdk destroy
+cdk destroy
 ```
